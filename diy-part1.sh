@@ -13,4 +13,4 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 # Add a feed source
 echo 'src-git openclash https://github.com/vernesong/OpenClash.git' >>feeds.conf.default
-echo 'src-git ddns-go https://github.com/sirpdboy/luci-app-ddns-go.git' >>feeds.conf.default
+
