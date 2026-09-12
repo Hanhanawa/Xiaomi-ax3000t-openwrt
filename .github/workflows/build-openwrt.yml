@@ -229,20 +229,6 @@ jobs:
         ./scripts/feeds install -a
 
     # =====================================================
-    # Install DDNS-Go
-    # =====================================================
-    - name: Install ddns-go
-      run: |
-        cd openwrt
-
-        rm -rf package/ddns-go
-
-        git clone \
-          --depth=1 \
-          https://github.com/sirpdboy/luci-app-ddns-go.git \
-          package/ddns-go
-
-    # =====================================================
     # Install Argon
     # =====================================================
     - name: Install Argon
@@ -297,14 +283,6 @@ jobs:
           'CONFIG_PACKAGE_luci-app-openclash|CONFIG_PACKAGE_kmod-tun' \
           .config || true
 
-        echo
-        echo "========================================"
-        echo " DDNS-Go"
-        echo "========================================"
-
-        grep -E \
-          'CONFIG_PACKAGE_(ddns-go|luci-app-ddns-go|ddns-scripts)' \
-          .config || true
 
         echo
         echo "========================================"
@@ -315,14 +293,6 @@ jobs:
           'CONFIG_PACKAGE_(kmod-wireguard|wireguard-tools|luci-proto-wireguard)' \
           .config || true
 
-        echo
-        echo "========================================"
-        echo " PassWall / SSR"
-        echo "========================================"
-
-        grep -E \
-          'PASSWALL|passwall|SSR|ssr-plus' \
-          .config || true
 
     # =====================================================
     # SSH
