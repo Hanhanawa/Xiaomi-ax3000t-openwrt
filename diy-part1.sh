@@ -17,15 +17,6 @@ echo " Preparing OpenWrt feeds"
 echo "========================================"
 
 # ---------------------------------------------------------
-# Remove PassWall2 feed only
-# Do NOT remove helloworld or other feeds.
-# ---------------------------------------------------------
-if grep -q 'passwall2' feeds.conf.default 2>/dev/null; then
-    echo "[INFO] Removing PassWall2 feed..."
-    sed -i '/passwall2/d' feeds.conf.default
-fi
-
-# ---------------------------------------------------------
 # Add OpenClash feed
 # Avoid duplicate entries.
 # ---------------------------------------------------------
